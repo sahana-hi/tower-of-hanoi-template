@@ -26,8 +26,11 @@ public class TowerSolver {
         if (height == 1) {
             this.model.move(source, destination);
         } else {
+            // move recursively the disks excluding the bottom disk to temp/pole 1
             solve(height - 1, source, destination, temp);
+            // move the last bottom large disk from the source to pole 2/destination/last pole
             solve(1, source, temp, destination);
+            // move recursively the rest of the disks from temp/pole 1 to pole 2/last pole
             solve(height - 1, temp, source, destination);
         }
     }
