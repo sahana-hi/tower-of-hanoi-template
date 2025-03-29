@@ -47,7 +47,7 @@ public class TowerModel {
     public void move(int source, int destination)
     {
         // TODO!!
-        if (towers[source].peek() < towers[destination].peek()) {
+        if (towers[source].peek() < towers[destination].peek() || towers[destination].peek() == 0) {
             int disk = towers[source].pop();
             towers[destination].push(disk);
             System.out.println("Move #" + ++moveCounter + " from " + source + " to " + destination);
